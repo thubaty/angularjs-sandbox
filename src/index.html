@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app="myWords">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello world • AngularJS</title>
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/main.css.css">
+</head>
+<body>
+<div class="container">
+    <!-- <div ng-controller="WordController as ctrl">
+       {{data.filterByDone}}
+       <div class="col-sm-6">
+           <ul>
+               <li ng-repeat="task in data.tasks">
+                   <strong>{{task.text}}</strong>
+                   &lt;!&ndash;<span ng-repeat="tag in task.tags" class="">{{tag}}{{($last) ? '' : ', '}}</span>
+                   <input ng-model="task.done" type="checkbox">&ndash;&gt;
+               </li>
+           </ul>
+       </div>
+   </div>-->
+    <div ng-controller="WordController as ctrl">
+
+        <div ng-repeat="task in data.tasks">
+            <strong>{{task.text}}</strong>
+            <!--<span ng-repeat="tag in task.tags" class="">{{tag}}{{($last) ? '' : ', '}}</span>
+            <input ng-model="task.done" type="checkbox">-->
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="vendor/lodash/dist/lodash.js"></script>
+<script src="vendor/angular/angular.js"></script>
+<script src="app/main.js"></script>
+<script src="app/controllers.js"></script>
+<!--<script src="app_old/directives.js"></script>
+<script src="app_old/services.js"></script>-->
+</body>
+</html>

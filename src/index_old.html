@@ -1,0 +1,70 @@
+<!doctype html>
+<html ng-app="myapp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello world • AngularJS</title>
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <style>
+    body { padding-top:4em; }
+    .tags-selector {}
+    .tags-selector .alert {
+      cursor: pointer;
+      display: inline-block;
+      margin: 0.5em;
+    }
+    .tags-selector .alert:hover {
+      text-decoration: none;
+    }
+    .tags-selector .alert.active {
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div ng-controller="TaskController as ctrl" class="row">
+    <div class="col-sm-6">
+      <ul>
+        <li ng-repeat="task in data.tasks | filter:ctrl.filterByDone | filter:ctrl.filterByTags">
+          <strong>{{task.text}}</strong>
+            <span   ng-repeat="tag in task.tags"
+                    class="">{{tag}}{{($last) ? '' : ', '}}</span>
+          <input ng-model="task.done" type="checkbox">
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-sm-6">
+      <h3>Done count {{ctrl.getDoneCount()}}</h3>
+      <div class="checkbox">
+        <label>
+          <input ng-model="data.filterByDone" type="checkbox"> Only done
+        </label>
+      </div>
+      <div tags-selector></div>
+    </div>
+
+    <form ng-submit="ctrl.saveNewTask()" class="well">
+      <div class="form-group">
+        <input ng-model="data.text" class="form-control" required autofocus>
+      </div>
+      <div class="form-group">
+        <select   ng-model="data.newTaskTags"
+                  ng-options="tag for tag in data.availableTags"
+                  class="form-control" multiple></select>
+      </div>
+      <button type="submit" class="btn btn-default">add task</button>
+    </form>
+  </div>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+<script src="//code.angularjs.org/1.3.0-beta.14/angular.js"></script>
+<script src="app_old/main.js"></script>
+<script src="app_old/controllers.js"></script>
+<script src="app_old/directives.js"></script>
+<script src="app_old/services.js"></script>
+</body>
+</html>
