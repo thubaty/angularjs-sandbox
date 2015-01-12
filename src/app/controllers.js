@@ -7,21 +7,33 @@ angular.module('myWords')
             filterByDone: false,
             tasks: [
                 {"text": "Buy beer", "done": false, "tags": ["home", "urgent"]},
-                {"text": "Send spreadsheet", "done": true, "tags": ["work", "urgent"]}, {
+                {"text": "Send spreadsheet", "done": false, "tags": ["work", "urgent"]}, {
                     "text": "Send spreadsheet",
-                    "done": true,
+                    "done": false,
                     "tags": ["work", "urgent"]
-                }, {"text": "Call Jim", "done": true, "tags": ["work"]}, {
+                }, {"text": "Call Jim", "done": false, "tags": ["work"]}, {
                     "text": "Recharge credit card",
-                    "done": true,
+                    "done": false,
                     "tags": ["wife", "urgent"]
                 }, {
                     "text": "Print monthly report",
-                    "done": true,
+                    "done": false,
                     "tags": ["work", "urgent"]
-                }, {"text": "Print monthly report", "done": true, "tags": ["work", "urgent"]}
+                }, {"text": "Print monthly report", "done": false, "tags": ["work", "urgent"]}
             ]
         };
+
+        this.shuffleWord = function (word) {
+            console.log("adding");
+            var idx;
+            var x;
+            if (word) {
+                idx = $scope.data.tasks.indexOf(word);
+                x = $scope.data.tasks.splice(idx, 1);
+                x[0].done = true;
+                $scope.data.tasks.push(x[0]);
+            }
+        }
 
         /*this.saveNewTask = function() {
          $scope.data.tasks.push({

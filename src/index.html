@@ -5,26 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello world • AngularJS</title>
     <link rel="stylesheet" href="styles/bootstrap.css">
-    <link rel="stylesheet" href="styles/main.css.css">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 <div class="container">
-    <!-- <div ng-controller="WordController as ctrl">
-       {{data.filterByDone}}
-       <div class="col-sm-6">
-           <ul>
-               <li ng-repeat="task in data.tasks">
-                   <strong>{{task.text}}</strong>
-                   &lt;!&ndash;<span ng-repeat="tag in task.tags" class="">{{tag}}{{($last) ? '' : ', '}}</span>
-                   <input ng-model="task.done" type="checkbox">&ndash;&gt;
-               </li>
-           </ul>
-       </div>
-   </div>-->
     <div ng-controller="WordController as ctrl">
 
-        <div ng-repeat="task in data.tasks">
-            <strong>{{task.text}}</strong>
+        <div ng-repeat="word in data.tasks">
+
+            <div ng-click="ctrl.shuffleWord(word)">
+                <span class="label {{word.done? 'label-success':'label-default'}}">{{word.text}} | {{word.done? 'ja':'nein'}}</span>
+            </div>
+
             <!--<span ng-repeat="tag in task.tags" class="">{{tag}}{{($last) ? '' : ', '}}</span>
             <input ng-model="task.done" type="checkbox">-->
         </div>
