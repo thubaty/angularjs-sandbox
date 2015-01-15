@@ -9,26 +9,19 @@
 </head>
 <body>
 <div class="container">
-    <div ng-controller="WordController as ctrl">
-
-        <div ng-repeat="word in data.tasks">
-
-            <div ng-click="ctrl.shuffleWord(word)">
-                <span class="label {{word.done? 'label-success':'label-default'}}">{{word.text}} | {{word.done? 'ja':'nein'}}</span>
-            </div>
-
-            <!--<span ng-repeat="tag in task.tags" class="">{{tag}}{{($last) ? '' : ', '}}</span>
-            <input ng-model="task.done" type="checkbox">-->
-        </div>
-    </div>
-</div>
+    <div ng-view></div>
 </div>
 
 <script src="vendor/lodash/dist/lodash.js"></script>
 <script src="vendor/angular/angular.js"></script>
+<script src="vendor/angular-route/angular-route.js"></script>
+
+
+<script src="app/_shared/_module.js"></script>
+<script src="app/detail/_module.js"></script>
+<script src="app/home/_module.js"></script>
+<script src="app/home/controller/controllers.js"></script>
 <script src="app/main.js"></script>
-<script src="app/controllers.js"></script>
-<!--<script src="app_old/directives.js"></script>
-<script src="app_old/services.js"></script>-->
+
 </body>
 </html>

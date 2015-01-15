@@ -1,7 +1,9 @@
-angular.module('myWords')
+angular.module('myWords.home')
 
     .controller('WordController', function ($scope) {
         'use strict';
+
+        console.log('out');
 
         $scope.data = {
             filterByDone: false,
@@ -32,43 +34,6 @@ angular.module('myWords')
                 x = $scope.data.tasks.splice(idx, 1);
                 x[0].done = true;
                 $scope.data.tasks.push(x[0]);
-            }
         }
-
-        /*this.saveNewTask = function() {
-         $scope.data.tasks.push({
-         text: $scope.data.text,
-         done: false,
-         tags: $scope.data.newTaskTags,
-         });
-         $scope.data.text = '';
-         $scope.data.newTaskTags = [];
-         };
-
-         this.getDoneCount = function() {
-         return _.reduce($scope.data.tasks, function(memo, task) {
-         if (task.done) {
-         return memo + 1
-         } else {
-         return memo
-         }
-         }, 0);
-         }
-
-         this.filterByDone = function(task) {
-         if ($scope.data.filterByDone) {
-         return task.done;
-         }
-
-         return true;
-         }
-
-         this.filterByTags = function(task) {
-         if ($scope.data.selectedTags.length) {
-         var matchedTags = _.intersection($scope.data.selectedTags, task.tags);
-         return !!matchedTags.length;
-         }
-
-         return true;
-         }*/
+        }
     });
