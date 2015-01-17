@@ -6,8 +6,7 @@ angular.module('myWords.home')
         console.log('out');
 
         $scope.data = {
-            filterByDone: false,
-            tasks: [
+            groups: [
                 {"text": "Buy beer", "done": false, "tags": ["home", "urgent"]},
                 {"text": "Send spreadsheet", "done": false, "tags": ["work", "urgent"]}, {
                     "text": "Send spreadsheet",

@@ -8,7 +8,7 @@ angular.module('myWords.home', [])
 
         $routeProvider
             .when('/', {
-                controller: 'WordController as ctrl',
+                controller: 'HomeController as ctrl',
                 templateUrl: 'app/home/view/index.html'
             });
     });
