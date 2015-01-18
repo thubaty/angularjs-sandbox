@@ -1,1 +1,15 @@
-jout this is detail
+jout this is detail of {{name}}
+
+<br/>
+
+<div ng-repeat="word in data">
+    <div ng-click="ctrl.shuffleWord(word)">
+        <div class="alert {{word.done? 'alert-success':'alert-warning'}}">{{word.slovak}} | {{word.done? 'ja':'nein'}}
+        </div>
+    </div>
+</div>
+length: {{data.length}}
+
+<br/>
+
+<a href="#/">back</a>

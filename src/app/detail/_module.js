@@ -4,7 +4,8 @@ angular.module('myWords.detail', [])
         'use strict';
 
         $routeProvider
-            .when('/detail', {
-                templateUrl: 'app/detail/view/index.html'
+            .when('/detail/:listId', {
+                templateUrl: 'app/detail/view/index.html',
+                controller: "DetailController as ctrl"
             });
     });

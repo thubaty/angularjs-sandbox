@@ -3,15 +3,6 @@ angular.module('myWords.home')
     .controller("HomeController", function ($scope, $http, HomeService) {
         'use strict';
 
-
-        $http.get('app/data/data.json').
-            success(function (data, status, headers, config) {
-                $scope.data = data;
-            }).
-            error(function (data, status, headers, config) {
-                // log error
-            });
-
         HomeService.getList().then(function (data) {
             $scope.lists = data.data;
         }, function (error) {
@@ -30,5 +21,5 @@ angular.module('myWords.home')
                 x[0].done = true;
                 $scope.data.push(x[0]);
             }
-        }
+        };
     });

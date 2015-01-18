@@ -1,16 +1,6 @@
-ich bin crispy clean
 <div>
-
-
-    <div ng-repeat="word in data">
-        <div ng-click="ctrl.shuffleWord(word)">
-            <span class="label {{word.done? 'label-success':'label-default'}}">{{word.slovak}} | {{word.done? 'ja':'nein'}}</span>
-        </div>
-    </div>
-    length: {{data.length}}
     <div ng-repeat="list in lists">
         <a href="#/detail/{{list.id}}">open detail - {{list.name}}</a>
 
     </div>
-    done
 </div>
