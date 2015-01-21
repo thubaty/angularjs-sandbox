@@ -5,11 +5,14 @@ angular.module('myWords.home')
 
         var lists = ['abc', 'efg'];
 
+        function logSomething(d) {
+            console.log("loggin " + d);
+        }
 
         this.getList = function () {
-            return $http.get('app/data/lists.json').
+            return $http.get('rest/wordservice/getall').
                 success(function (data, status, headers, config) {
-                    console.log(data);
+                    logSomething(data);
                     return data;
                 });
         };
