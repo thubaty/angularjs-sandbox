@@ -1,4 +1,4 @@
-package home;
+package sk.th.service.home;
 
 import java.io.Serializable;
 

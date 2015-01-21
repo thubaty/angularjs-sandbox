@@ -1,4 +1,4 @@
-package home;
+package sk.th.service.home;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,6 +9,7 @@ import java.util.List;
 
 @RequestMapping("/wordservice")
 @RestController
+//@Api(value = "users", description = "Endpoint for user management")
 public class HomeService {
 
     @RequestMapping(value = "/getall", method = RequestMethod.GET)
