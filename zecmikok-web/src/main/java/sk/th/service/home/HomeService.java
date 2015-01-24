@@ -8,13 +8,15 @@ import java.util.*;
 @RestController
 public class HomeService {
 
-    Map<Long, WordList> listDb = new HashMap<Long, WordList>();
+    Map<Long, LearnUnit> listDb = new HashMap<Long, LearnUnit>();
     Map<Long, List<Word>> wordDb = new HashMap<Long, List<Word>>();
 
 
     {
-        listDb.put(1l, new WordList(1l, "list1", 50l, 40l));
-        listDb.put(2l, new WordList(2l, "list2", 50l, 40l));
+        listDb.put(1l, new LearnUnit(1l, "list1", "wordset", 40l));
+        listDb.put(2l, new LearnUnit(2l, "list2", "wordset", 40l));
+        listDb.put(3l, new LearnUnit(3l, "pastperfect", "grammar", 40l));
+        listDb.put(4l, new LearnUnit(4l, "atWork1", "homework", 40l));
 
         {
             List<Word> words = new ArrayList<Word>();
@@ -36,9 +38,9 @@ public class HomeService {
     }
 
     @RequestMapping(value = "/getall", method = RequestMethod.GET)
-    public List<WordList> getData() {
+    public List<LearnUnit> getData() {
         Set<Long> ids = listDb.keySet();
-        List<WordList> list = new ArrayList<WordList>();
+        List<LearnUnit> list = new ArrayList<LearnUnit>();
         for (Long id : ids) {
             list.add(listDb.get(id));
         }
@@ -52,14 +54,14 @@ public class HomeService {
 
 
     @RequestMapping(value = "/{listId}", method = RequestMethod.GET)
-    public WordList getSingleData(@PathVariable("listId") Long listId) {
+    public LearnUnit getSingleData(@PathVariable("listId") Long listId) {
         return listDb.get(listId);
     }
 
     @RequestMapping(value = "/{wordId}", method = RequestMethod.PUT)
     public
     @ResponseBody
-    WordList updateWord(@RequestBody WordList list, @PathVariable("wordId") Long wordId) {
+    LearnUnit updateWord(@RequestBody LearnUnit list, @PathVariable("wordId") Long wordId) {
         listDb.put(wordId, list);
         return list;
     }
@@ -67,7 +69,7 @@ public class HomeService {
     @RequestMapping(value = "/{wordId}", method = RequestMethod.POST)
     public
     @ResponseBody
-    WordList postWord(@RequestBody WordList list, @PathVariable("wordId") Long wordId) {
+    LearnUnit postWord(@RequestBody LearnUnit list, @PathVariable("wordId") Long wordId) {
         listDb.put(wordId, list);
         return list;
     }

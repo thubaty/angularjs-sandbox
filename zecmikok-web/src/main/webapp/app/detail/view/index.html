@@ -1,4 +1,6 @@
+<h1>
 jout this is detail of {{data.name}}
+</h1>
 
 <br/>
 
@@ -6,18 +8,18 @@ jout this is detail of {{data.name}}
     <tr ng-repeat="word in data.wordList" class="{{word.done? 'success':'danger'}}"
         ng-controller="WordFlipController as wfc">
         <td>
-            <kbd>{{word.done? 'ja':'nein'}}</kbd>
+            <!--<kbd>{{word.done? 'ja':'nein'}}</kbd>-->
+            <kbd>
             <a href="" ng-click="toggleWord()">
-                <span ng-show="!isFlipped()">{{word.slovak}}</span>
-                <span ng-show="isFlipped()">{{word.translated}}</span>
+                <span ng-show="!isFlipped()">{{word.slovak | uppercase}}</span>
+                <span ng-show="isFlipped()">{{word.translated | lowercase}}</span>
             </a>
+            </kbd>
             <a href="" ng-click="shuffleWord(word)">[ano]</a>
             <a href="">[nie]</a>
         </td>
     </tr>
 </table>
-
-<!--ng-click="ctrl.shuffleWord(word)"-->
 
 <br/>
 
