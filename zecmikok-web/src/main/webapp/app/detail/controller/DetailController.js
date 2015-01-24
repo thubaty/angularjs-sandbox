@@ -1,23 +1,21 @@
 angular.module('myWords.detail')
 
-    .controller("DetailController", function ($scope, $http, $routeParams) {
+    .controller("DetailController", function ($scope, $http, $routeParams, HomeService) {
         'use strict';
 
         var listId = $routeParams.listId;
         $scope.name = listId;
 
         console.log($routeParams.listId);
-        $http.get('app/data/list' + $routeParams.listId + '.json').
-            success(function (data, status, headers, config) {
-                $scope.data = data;
-            }).
-            error(function (data, status, headers, config) {
-                // log error
-            });
 
+        HomeService.getWordsForList(listId).then(function (data) {
+            $scope.data = data.data;
+        }, function (error) {
+            console.log("error");
+        });
 
         this.shuffleWord = function (word) {
-            HomeService.get()
+            //HomeService.getWordsForList(listId);
             var idx;
             var x;
             if (word) {

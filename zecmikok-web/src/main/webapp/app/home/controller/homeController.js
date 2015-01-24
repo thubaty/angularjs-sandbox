@@ -3,7 +3,7 @@ angular.module('myWords.home')
     .controller("HomeController", function ($scope, $http, HomeService) {
         'use strict';
 
-        HomeService.getList().then(function (data) {
+        HomeService.getAll().then(function (data) {
             $scope.lists = data.data;
         }, function (error) {
             console.log("error");
