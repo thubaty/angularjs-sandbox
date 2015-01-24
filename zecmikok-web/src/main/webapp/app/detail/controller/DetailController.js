@@ -15,7 +15,17 @@ angular.module('myWords.detail')
         });
 
         this.shuffleWord = function (word) {
-            //HomeService.getWordsForList(listId);
+
+            HomeService.getList(listId).then(function (result) {
+                var currentList = result.data;
+                console.log(currentList);
+                currentList.name = "someshit";
+                HomeService.updateWordList(currentList);
+
+            }, function (error) {
+                console.log("error");
+            });
+
             var idx;
             var x;
             if (word) {

@@ -18,14 +18,14 @@ angular.module('myWords.home')
         };
 
         this.getList = function (listId) {
-            return $http.get('/wordservice/getall').
+            return $http.get('/wordservice/' + listId).
                 success(function (data, status, headers, config) {
                     return data;
                 });
         };
 
         this.updateWordList = function (wordList) {
-            return $http.put('/wordservice/getall', wordList).
+            return $http.put('/wordservice/' + wordList.id, wordList).
                 success(function (data, status, headers, config) {
                     return data;
                 });
