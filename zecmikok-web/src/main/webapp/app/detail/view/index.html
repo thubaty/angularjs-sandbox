@@ -1,15 +1,35 @@
 jout this is detail of {{name}}
 
 <br/>
-
-<div ng-repeat="word in data">
-    <div ng-click="ctrl.shuffleWord(word)">
-        <div class="alert {{word.done? 'alert-success':'alert-warning'}}">{{word.slovak}} | {{word.done? 'ja':'nein'}}
-        </div>
-    </div>
-</div>
-length: {{data.length}}
-
+<br/>
+<br/>
+<br/>
 <br/>
 
+<table class="table">
+    <tr ng-repeat="word in data" class="{{word.done? 'success':'danger'}}">
+        <td>
+            <kbd>{{word.done? 'ja':'nein'}}</kbd> {{word.slovak}} <a ng-click="ctrl.shuffleWord(word)" href="">[ano]</a>
+            <a href="">[nie]</a>
+        </td>
+    </tr>
+</table>
+
+<!--<div ng-repeat="word in data" style="background-color: #424242">
+    <div>
+        <div class="{{word.done? 'a':'b'}}">
+            <kbd>{{word.done? 'ja':'nein'}}</kbd> {{word.slovak}} <a ng-click="ctrl.shuffleWord(word)" href="">[ano]</a> <a href="">[nie]</a>
+        </div>
+    </div>
+</div>-->
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+length: {{data.length}}
+<br/>
 <a href="#/">back</a>

@@ -9,6 +9,9 @@ public class WordList implements Serializable {
     private Long wordCount;
     private Long state;
 
+    public WordList() {
+    }
+
     public WordList(Long id, String name, Long wordCount, Long state) {
         this.id = id;
         this.name = name;

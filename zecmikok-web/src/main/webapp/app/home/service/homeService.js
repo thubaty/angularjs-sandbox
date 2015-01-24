@@ -10,7 +10,7 @@ angular.module('myWords.home')
         }
 
         this.getList = function () {
-            return $http.get('rest/wordservice/getall').
+            return $http.get('/wordservice/getall').
                 success(function (data, status, headers, config) {
                     logSomething(data);
                     return data;
