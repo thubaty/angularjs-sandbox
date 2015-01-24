@@ -1,35 +1,26 @@
-jout this is detail of {{name}}
+jout this is detail of {{data.name}}
 
-<br/>
-<br/>
-<br/>
-<br/>
 <br/>
 
 <table class="table">
-    <tr ng-repeat="word in data" class="{{word.done? 'success':'danger'}}">
+    <tr ng-repeat="word in data.wordList" class="{{word.done? 'success':'danger'}}"
+        ng-controller="WordFlipController as wfc">
         <td>
-            <kbd>{{word.done? 'ja':'nein'}}</kbd> {{word.slovak}} <a ng-click="ctrl.shuffleWord(word)" href="">[ano]</a>
+            <kbd>{{word.done? 'ja':'nein'}}</kbd>
+            <a href="" ng-click="toggleWord()">
+                <span ng-show="!isFlipped()">{{word.slovak}}</span>
+                <span ng-show="isFlipped()">{{word.translated}}</span>
+            </a>
+            <a href="" ng-click="shuffleWord(word)">[ano]</a>
             <a href="">[nie]</a>
         </td>
     </tr>
 </table>
 
-<!--<div ng-repeat="word in data" style="background-color: #424242">
-    <div>
-        <div class="{{word.done? 'a':'b'}}">
-            <kbd>{{word.done? 'ja':'nein'}}</kbd> {{word.slovak}} <a ng-click="ctrl.shuffleWord(word)" href="">[ano]</a> <a href="">[nie]</a>
-        </div>
-    </div>
-</div>-->
-
+<!--ng-click="ctrl.shuffleWord(word)"-->
 
 <br/>
-<br/>
-<br/>
-<br/>
-<br/>
 
-length: {{data.length}}
+length: {{data.wordList.length}}
 <br/>
 <a href="#/">back</a>

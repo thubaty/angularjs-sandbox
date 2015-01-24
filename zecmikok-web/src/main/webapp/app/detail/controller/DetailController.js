@@ -3,25 +3,25 @@ angular.module('myWords.detail')
     .controller("DetailController", function ($scope, $http, $routeParams, HomeService) {
         'use strict';
 
-        var listId = $routeParams.listId;
-        $scope.name = listId;
+        $scope.data = {
+            name: "unknown"
+        };
 
-        console.log($routeParams.listId);
+        var listId = $routeParams.listId;
+        $scope.data.name = listId;
 
         HomeService.getWordsForList(listId).then(function (data) {
-            $scope.data = data.data;
+            $scope.data.wordList = data.data;
         }, function (error) {
             console.log("error");
         });
 
-        this.shuffleWord = function (word) {
+        $scope.shuffleWord = function (word) {
 
             HomeService.getList(listId).then(function (result) {
                 var currentList = result.data;
-                console.log(currentList);
                 currentList.name = "someshit";
                 HomeService.updateWordList(currentList);
-
             }, function (error) {
                 console.log("error");
             });
@@ -29,10 +29,10 @@ angular.module('myWords.detail')
             var idx;
             var x;
             if (word) {
-                idx = $scope.data.indexOf(word);
-                x = $scope.data.splice(idx, 1);
+                idx = $scope.data.wordList.indexOf(word);
+                x = $scope.data.wordList.splice(idx, 1);
                 x[0].done = true;
-                $scope.data.push(x[0]);
+                $scope.data.wordList.push(x[0]);
             }
         };
     });
