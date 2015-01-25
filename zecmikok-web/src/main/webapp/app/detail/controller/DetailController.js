@@ -18,13 +18,16 @@ angular.module('myWords.detail')
 
         $scope.shuffleWord = function (word) {
 
-            HomeService.getList(listId).then(function (result) {
+            word.done = true;
+            HomeService.updateWord(word);
+
+            /*HomeService.getList(listId).then(function (result) {
                 var currentList = result.data;
                 currentList.name = "someshit";
-                HomeService.updateWordList(currentList);
+             HomeService.updateWord(currentList);
             }, function (error) {
                 console.log("error");
-            });
+             });*/
 
             var idx;
             var x;

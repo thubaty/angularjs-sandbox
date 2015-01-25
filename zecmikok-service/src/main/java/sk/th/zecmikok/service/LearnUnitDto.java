@@ -1,18 +1,18 @@
-package sk.th.service.home;
+package sk.th.zecmikok.service;
 
 import java.io.Serializable;
 
-public class LearnUnit implements Serializable {
+public class LearnUnitDto implements Serializable {
 
     private Long id;
     private String name;
     private String type;
     private Long level;
 
-    public LearnUnit() {
+    public LearnUnitDto() {
     }
 
-    public LearnUnit(Long id, String name, String type, Long level) {
+    public LearnUnitDto(Long id, String name, String type, Long level) {
         this.id = id;
         this.name = name;
         this.type = type;

@@ -17,10 +17,29 @@
     <modules>
         <module>zecmikok-service</module>
         <module>zecmikok-web</module>
+        <module>zecmikok-repository</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+
+
+            <dependency>
+                <groupId>sk.th</groupId>
+                <artifactId>zecmikok-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>sk.th</groupId>
+                <artifactId>zecmikok-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>sk.th</groupId>
+                <artifactId>zecmikok-repository</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
             <!-- Spring -->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -56,15 +75,10 @@
             </dependency>
 
             <dependency>
-
                 <groupId>com.mangofactory</groupId>
-
                 <artifactId>swagger-springmvc</artifactId>
-
                 <version>0.9.4</version>
-
             </dependency>
-
 
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>

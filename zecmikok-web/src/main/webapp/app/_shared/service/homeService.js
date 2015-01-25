@@ -24,8 +24,8 @@ angular.module('myWords.home')
                 });
         };
 
-        this.updateWordList = function (wordList) {
-            return $http.put('/wordservice/' + wordList.id, wordList).
+        this.updateWord = function (word) {
+            return $http.put('/wordservice/' + word.id, word).
                 success(function (data, status, headers, config) {
                     return data;
                 });

@@ -1,11 +1,10 @@
-package sk.th.service.home;
+package sk.th.zecmikok.service;
 
 import java.io.Serializable;
 
-/**
- * Created by tohy on 24.01.2015.
- */
-public class Word implements Serializable {
+public class WordDto implements Serializable {
+
+    private Long id;
 
     private String slovak;
 
@@ -17,10 +16,11 @@ public class Word implements Serializable {
 
     private boolean done;
 
-    public Word() {
+    public WordDto() {
     }
 
-    public Word(String slovak, String translated, Long diff, Long state, boolean done) {
+    public WordDto(Long id, String slovak, String translated, Long diff, Long state, boolean done) {
+        this.id = id;
         this.slovak = slovak;
         this.translated = translated;
         this.diff = diff;
@@ -66,5 +66,13 @@ public class Word implements Serializable {
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
