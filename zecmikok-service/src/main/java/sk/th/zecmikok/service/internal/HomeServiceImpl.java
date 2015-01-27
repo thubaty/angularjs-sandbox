@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import sk.th.zecmikok.service.HomeService;
 import sk.th.zecmikok.service.LearnUnitDto;
 import sk.th.zecmikok.service.WordDto;
+import sk.th.zecmikok.service.WordDtoComparator;
 
 import java.util.*;
 
@@ -19,6 +20,7 @@ public class HomeServiceImpl implements HomeService {
         listDb.put(2l, new LearnUnitDto(2l, "list2", "wordset", 40l));
         listDb.put(3l, new LearnUnitDto(3l, "pastperfect", "grammar", 40l));
         listDb.put(4l, new LearnUnitDto(4l, "atWork1", "homework", 40l));
+        listDb.put(5l, new LearnUnitDto(4l, "atWork1", "homework", 40l));
 
         {
             List<WordDto> words = new ArrayList<WordDto>();
@@ -26,6 +28,12 @@ public class HomeServiceImpl implements HomeService {
             words.add(new WordDto(2l, "slovo2", "word2", 10l, 10l, false));
             words.add(new WordDto(3l, "slovo3", "word3", 10l, 10l, false));
             words.add(new WordDto(4l, "slovo4", "word4", 10l, 10l, false));
+            words.add(new WordDto(5l, "slovo5", "word4", 10l, 10l, false));
+            words.add(new WordDto(6l, "slovo6", "word4", 10l, 10l, false));
+            words.add(new WordDto(7l, "slovo7", "word4", 10l, 10l, false));
+            words.add(new WordDto(8l, "slovo8", "word4", 10l, 10l, false));
+            words.add(new WordDto(9l, "slovo9", "word4", 10l, 10l, false));
+            words.add(new WordDto(10l, "slovo10", "word4", 10l, 10l, false));
             wordDb.put(1l, words);
         }
 
@@ -56,7 +64,9 @@ public class HomeServiceImpl implements HomeService {
 
     @Override
     public List<WordDto> getWordsForLearnUnit(Long unitId) {
-        return wordDb.get(unitId);
+        List<WordDto> wordDtos = wordDb.get(unitId);
+        Collections.sort(wordDtos, new WordDtoComparator());
+        return wordDtos;
     }
 
     @Override
@@ -69,6 +79,10 @@ public class HomeServiceImpl implements HomeService {
                 if (currentDto.getId().equals(idToFind)) {
                     currentDto.setDone(wordDto.isDone());
                     currentDto.setState(wordDto.getState());
+                    currentDto.setKnow1(wordDto.getKnow1());
+                    currentDto.setKnow2(wordDto.getKnow2());
+                    currentDto.setKnow3(wordDto.getKnow3());
+                    currentDto.setCurrentTime(System.currentTimeMillis());
                     return wordDto;
                 }
             }

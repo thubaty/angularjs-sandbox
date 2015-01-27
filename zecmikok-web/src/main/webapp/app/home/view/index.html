@@ -1,17 +1,37 @@
+<div class="row">
+    <div ng-repeat="list in lists">
+        <div class="col-xs-6 col-md-3">
+
+            <!--http://salvattore.com/-->
+            <a class="thumbnail" href="#/detail/{{list.id}}">
+                <div class="caption">
+                    {{list.name}} <span class="badge">5</span>
+
+                    <p>jebenci pitchu makovu</p>
+                </div>
+
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<!--
 <div>
     <div ng-repeat="list in lists" ng-switch on="list.type">
+
         <div class="panel panel-default" ng-switch-when="wordset">
             <div class="panel-body">
                 <a href="#/detail/{{list.id}}">open detail - {{list.name}}</a> set
             </div>
         </div>
+
         <div ng-switch-when="homework">
             <a href="#/detail/{{list.id}}">open detail - {{list.name}}</a> homework wohoooo
         </div>
         <div ng-switch-when="grammar">
             <a href="#/detail/{{list.id}}">open detail - {{list.name}}</a> grammar
         </div>
-
-
     </div>
 </div>
+-->

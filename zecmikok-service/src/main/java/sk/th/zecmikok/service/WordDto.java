@@ -1,8 +1,11 @@
 package sk.th.zecmikok.service;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
 public class WordDto implements Serializable {
+
+    public static Comparator<WordDto> SRCOMPARATOR = new WordDtoComparator();
 
     private Long id;
 
@@ -16,6 +19,12 @@ public class WordDto implements Serializable {
 
     private boolean done;
 
+    private Boolean know1;
+    private Boolean know2;
+    private Boolean know3;
+
+    private Long currentTime;
+
     public WordDto() {
     }
 
@@ -26,6 +35,10 @@ public class WordDto implements Serializable {
         this.diff = diff;
         this.state = state;
         this.done = done;
+        this.know1 = false;
+        this.know2 = false;
+        this.know3 = false;
+        this.currentTime = System.currentTimeMillis();
     }
 
     public String getSlovak() {
@@ -74,5 +87,37 @@ public class WordDto implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Boolean getKnow1() {
+        return know1;
+    }
+
+    public void setKnow1(Boolean know1) {
+        this.know1 = know1;
+    }
+
+    public Boolean getKnow2() {
+        return know2;
+    }
+
+    public void setKnow2(Boolean know2) {
+        this.know2 = know2;
+    }
+
+    public Boolean getKnow3() {
+        return know3;
+    }
+
+    public void setKnow3(Boolean know3) {
+        this.know3 = know3;
+    }
+
+    public Long getCurrentTime() {
+        return currentTime;
+    }
+
+    public void setCurrentTime(Long currentTime) {
+        this.currentTime = currentTime;
     }
 }

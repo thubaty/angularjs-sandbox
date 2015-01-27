@@ -28,7 +28,6 @@ public class HomeRestController {
 
     @RequestMapping(value = "/{listId}", method = RequestMethod.GET)
     public LearnUnitDto getLearnUnit(@PathVariable("listId") Long unitId) {
-        +
         return homeService.getLearnUnit(unitId);
     }
 

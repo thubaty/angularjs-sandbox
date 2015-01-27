@@ -7,17 +7,17 @@ jout this is detail of {{data.name}}
 <table class="table">
     <tr ng-repeat="word in data.wordList" class="{{word.done? 'success':'danger'}}"
         ng-controller="WordFlipController as wfc">
-        <td>
+        <td style="background-color: {{wordColor(word)}}">
             <!--<kbd>{{word.done? 'ja':'nein'}}</kbd>-->
             <kbd>
             <a href="" ng-click="toggleWord()">
-                <span ng-show="!isFlipped()">{{word.slovak | uppercase}}</span>
+                <span ng-show="!isFlipped()">{{word.slovak | uppercase }}</span>
                 <span ng-show="isFlipped()">{{word.translated | lowercase}}</span>
             </a>
             </kbd>
-            <a href="" ng-click="shuffleWord(word)">[ano]</a>
-            <a href="">[nie]</a>
-            <kbd>{{word.state}}</kbd>
+            <a href="" ng-click="wordYes(word)">[ano]</a>
+            <a href="" ng-click="wordNo(word)">[nie]</a>
+            <kbd>{{word.state}} {{wordDetail(word)}} {{wordColor(word)}}</kbd>
         </td>
     </tr>
 </table>
