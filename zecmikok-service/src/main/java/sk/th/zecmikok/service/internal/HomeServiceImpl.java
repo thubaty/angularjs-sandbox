@@ -39,10 +39,10 @@ public class HomeServiceImpl implements HomeService {
 
         {
             List<WordDto> words = new ArrayList<WordDto>();
-            words.add(new WordDto(5l, "slovo51", "word1", 10l, 10l, false));
-            words.add(new WordDto(6l, "slovo62", "word2", 10l, 10l, false));
-            words.add(new WordDto(7l, "slovo73", "word3", 10l, 10l, false));
-            words.add(new WordDto(8l, "slovo84", "word4", 10l, 10l, false));
+            words.add(new WordDto(11l, "slovo51", "word1", 10l, 10l, false));
+            words.add(new WordDto(12l, "slovo62", "word2", 10l, 10l, false));
+            words.add(new WordDto(13l, "slovo73", "word3", 10l, 10l, false));
+            words.add(new WordDto(14l, "slovo84", "word4", 10l, 10l, false));
             wordDb.put(2l, words);
         }
     }
@@ -70,8 +70,8 @@ public class HomeServiceImpl implements HomeService {
     }
 
     @Override
-    public WordDto updateWord(Long wordId, WordDto wordDto) {
-        Long idToFind = wordId;
+    public WordDto updateWord(WordDto wordDto) {
+        Long idToFind = wordDto.getId();
         Set<Long> keySet = this.wordDb.keySet();
         for (Long aLong : keySet) {
             List<WordDto> wordDtos = wordDb.get(aLong);

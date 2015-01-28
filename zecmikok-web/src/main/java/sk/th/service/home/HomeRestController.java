@@ -31,11 +31,11 @@ public class HomeRestController {
         return homeService.getLearnUnit(unitId);
     }
 
-    @RequestMapping(value = "/{wordId}", method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT)
     public
     @ResponseBody
-    WordDto updateWord(@RequestBody WordDto word, @PathVariable("wordId") Long wordId) {
-        return homeService.updateWord(wordId, word);
+    WordDto updateWord(@RequestBody WordDto word) {
+        return homeService.updateWord(word);
     }
 
 }

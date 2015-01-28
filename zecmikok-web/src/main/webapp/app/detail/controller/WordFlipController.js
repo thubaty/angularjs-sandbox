@@ -5,8 +5,6 @@ angular.module('myWords.detail')
 
         $scope.wordFlipped = false;
 
-        console.log($scope);
-
         $scope.toggleWord = function () {
             $scope.wordFlipped = !$scope.wordFlipped;
         }

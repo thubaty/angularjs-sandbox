@@ -25,7 +25,7 @@ angular.module('myWords.home')
         };
 
         this.updateWord = function (word) {
-            return $http.put('/wordservice/' + word.id, word).
+            return $http.put('/wordservice/', word).
                 success(function (data, status, headers, config) {
                     return data;
                 });

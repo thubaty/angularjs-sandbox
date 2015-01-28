@@ -10,51 +10,45 @@ angular.module('myWords.detail')
         var listId = $routeParams.listId;
         $scope.data.name = listId;
 
-        function komuTrubisKara() {
-            HomeService.getWordsForList(listId).then(function (data) {
+        function loadWordList() {
+            console.log("loading list");
+            return HomeService.getWordsForList(listId).then(function (data) {
+                console.log("load list done");
                 $scope.data.wordList = data.data;
-            }, function (error) {
-                console.log("error");
+                $scope.spinnerloading = false;
             });
+            ;
         }
 
         function updateWord(word) {
-            HomeService.updateWord(word).then(function (data) {
-                komuTrubisKara();
-            }, function (error) {
-                console.log("error");
-            });
+            return HomeService.updateWord(word);
         }
 
-        komuTrubisKara();
+        console.log("loading list init");
+        loadWordList();
 
         $scope.wordNo = function (word) {
-
-            word.done = true;
+            $scope.spinnerloading = true;
             word.state = word.state - 1;
             word.know3 = word.know2;
             word.know2 = word.know1;
             word.know1 = false;
+            updateWord(word).then(loadWordList());
+        };
 
-            updateWord(word);
-            console.log(word);
-
-            /* var idx;
-            var x;
-            if (word) {
-                idx = $scope.data.wordList.indexOf(word);
-                x = $scope.data.wordList.splice(idx, 1);
-                x[0].done = true;
-                $scope.data.wordList.push(x[0]);
-             }*/
-            komuTrubisKara();
+        $scope.wordYes = function (word) {
+            $scope.spinnerloading = true;
+            word.state = word.state + 1;
+            word.know3 = word.know2;
+            word.know2 = word.know1;
+            word.know1 = true;
+            updateWord(word).then(loadWordList());
         };
 
         $scope.wordDetail = function (word) {
             var w1 = word.know1 ? "Y" : "N"
             var w2 = word.know2 ? "Y" : "N";
             var w3 = word.know3 ? "Y" : "N";
-            console.log(w1 + w2 + w3);
             return w1 + w2 + w3;
         }
 
@@ -84,16 +78,4 @@ angular.module('myWords.detail')
             }
         }
 
-        $scope.wordYes = function (word) {
-
-            word.done = true;
-            word.state = word.state + 1;
-            word.know3 = word.know2;
-            word.know2 = word.know1;
-            word.know1 = true;
-            updateWord(word);
-            console.log(word);
-
-            komuTrubisKara();
-        };
     });

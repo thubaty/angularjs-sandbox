@@ -10,7 +10,7 @@ public interface HomeService {
 
     List<WordDto> getWordsForLearnUnit(Long unitId);
 
-    WordDto updateWord(Long wordId, WordDto wordDto);
+    WordDto updateWord(WordDto wordDto);
 
 
 }

@@ -7,3 +7,5 @@ angular.module('myWords', ['ngRoute', 'myWords.home', 'myWords.shared', 'myWords
                     redirectTo: 'app/_shared/views/error/404.html'
                 });
         }]);
+
+
